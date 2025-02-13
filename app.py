@@ -73,6 +73,18 @@ def healthcare_chatbot(user_input):
         return "For a dry cough, try warm fluids and honey-based remedies. If your cough persists for more than two weeks, consult a doctor. A persistent cough may indicate an infection. Seek medical advice if needed. Try avoiding cold drinks and allergens if you have a cough."
     elif "headache"in user_input:
         return "For headaches, try resting in a quiet, dark room and staying hydrated. If you have frequent headaches, consider tracking triggers like stress, dehydration, or screen time. A cold or warm compress on the forehead can help relieve headaches. If headaches are severe or persistent, consult a doctor for further evaluation."
+    elif "back pain" in user_input:
+        return "For back pain, try stretching, maintaining good posture, and using a heating pad. Rest and avoid heavy lifting if you have back pain. If it persists, consult a doctor. Poor posture and prolonged sitting can cause back pain. Try taking short breaks and stretching. If back pain is severe or accompanied by numbness, seek medical advice."
+    elif "fatigue" in user_input:
+        return "For fatigue, try a warm bath, stretching, and avoiding screen time. If fatigue persists, consult a doctor. Rest and avoid prolonged sitting or heavy lifting. If fatigue is severe, it may indicate a medical condition. Seek medical advice if needed."
+    elif "stomach pain" in user_input:
+        return "For mild stomach pain, try drinking warm water and avoiding heavy meals. If stomach pain is severe or persistent, consult a doctor for evaluation. Ginger tea and probiotics may help with digestion-related stomach pain. If you have sharp stomach pain with vomiting or fever, seek medical attention immediately."
+    elif "throat pain" in user_input:
+        return "For throat pain, try warm saltwater gargles and stay hydrated. Drinking warm tea with honey can help soothe a sore throat. Avoid cold drinks and speak less if you have throat pain. If throat pain lasts more than a week or worsens, consult a doctor."
+    elif "hygiene food" in user_input:
+        return "Eating fresh fruits, vegetables, and well-cooked meals helps maintain good health. Wash fruits and vegetables thoroughly before eating to remove dirt and bacteria. Avoid junk food and processed meals. Opt for home-cooked food for better hygiene. Stay hydrated with clean, filtered water and avoid street food to prevent infections. Maintain proper food storage and always check expiry dates before consumption."
+    elif "healthy food" in user_input:
+        return "A balanced diet includes fruits, vegetables, lean proteins, whole grains, and healthy fats. Eating a variety of colorful fruits and vegetables provides essential vitamins and minerals. Include foods rich in fiber, such as whole grains, nuts, and legumes, for better digestion. Stay hydrated by drinking plenty of water and reducing sugary beverages. Limit processed foods and opt for fresh, home-cooked meals for better nutrition."     
     else:
         response = chatbot(user_input, max_length=500, num_return_sequences=1)
         return response[0]['generated_text']
