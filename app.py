@@ -1,13 +1,22 @@
 import streamlit as st 
 import nltk
-from transformers import pipeline
+import os
+import google.generativeai as genai
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
 nltk.download('punkt')
 nltk.download('stopwords')
 
-chatbot = pipeline("text-generation", model="distilgpt2")
+#Secure API key using environment varibales
+API_KEY=os.getenv("GEMINI_API_KEY")
+if API_KEY is None:
+    raise ValueError("API_KEY environment variable not set")
+
+#Set your Gemini api key
+genai.configure(api_key=API_KEY)
+
+chatbot = genai.GenerativeModel('gemini-pro')
 
 def healthcare_chatbot(user_input):
     if "symptom" in user_input:
@@ -61,8 +70,6 @@ def healthcare_chatbot(user_input):
         return "If anxiety is affecting your daily life, please seek professional guidance. Anxiety management techniques include therapy, exercise, and relaxation methods. For persistent anxiety, it's best to consult a mental health specialist."
     elif "insurance" in user_input:
         return "For medical insurance details, please contact your provider."
-    elif "pain" in user_input:
-        return "If you're experiencing pain, consult a doctor for proper evaluation."
     elif "emergency" in user_input:
         return "If this is a medical emergency, please call emergency services immediately."
     elif "cold" in user_input:
@@ -86,8 +93,8 @@ def healthcare_chatbot(user_input):
     elif "healthy food" in user_input:
         return "A balanced diet includes fruits, vegetables, lean proteins, whole grains, and healthy fats. Eating a variety of colorful fruits and vegetables provides essential vitamins and minerals. Include foods rich in fiber, such as whole grains, nuts, and legumes, for better digestion. Stay hydrated by drinking plenty of water and reducing sugary beverages. Limit processed foods and opt for fresh, home-cooked meals for better nutrition."     
     else:
-        response = chatbot(user_input, max_length=500, num_return_sequences=1)
-        return response[0]['generated_text']
+        response = chatbot.generate_content(user_input)
+        return response.text
 
 def main():
     st.title("Health Assistant Chatbot")
