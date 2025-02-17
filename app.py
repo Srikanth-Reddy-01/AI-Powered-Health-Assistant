@@ -33,20 +33,10 @@ def healthcare_chatbot(user_input):
     elif "follow-up" in user_input:
         return "A follow-up appointment is important for monitoring your health. Please schedule a follow-up as recommended by your doctor. Following up with your doctor ensures proper care."
     
-    elif "advice" in user_input:
-        return "It's best to consult a doctor for reliable medical advice. For expert advice, please talk to a healthcare professional. A doctor can provide the best guidance for your health concerns."
-    
     elif "test" in user_input:
         return "Medical tests should be scheduled as per a doctor's recommendation. Would you like help in scheduling a medical test? Diagnostic tests are important for proper evaluation. Consult a doctor."
     elif "surgery" in user_input:
         return "A surgery recommendation should come from a qualified surgeon. If you need surgery, consult a medical specialist for details. A doctor can assess whether surgery is necessary."
-    elif "treatment" in user_input:
-        return "Only a healthcare provider can recommend proper treatment. For treatment options, please speak to a doctor. Medical treatment should be tailored to individual needs by a professional."
-    
-    elif "allergies" in user_input:
-        return  "Allergy management should be guided by a doctor. If you're experiencing allergic reactions, consult a specialist. A doctor can suggest the best way to handle allergies."
-    elif "immunization" in user_input:
-        return "Vaccines are essential for immunity. Consult a healthcare provider for guidance. Would you like to know more about recommended immunizations? Staying up-to-date with immunizations helps prevent illnesses."
     elif "vaccination" in user_input:
         return "Please consult the Doctor for accurate vaccination recommendations"
 
