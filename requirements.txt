@@ -3,4 +3,4 @@ transformers
 tensorflow
 nltk
 tf-keras
-google-genrativeai
+google-generativeai
