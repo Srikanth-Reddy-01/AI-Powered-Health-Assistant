@@ -5,18 +5,21 @@ import google.generativeai as genai
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
+
 nltk.download('punkt')
 nltk.download('stopwords')
 
+
 #Secure API key using environment varibales
-API_KEY=os.getenv("GEMINI_API_KEY")
+API_KEY=os.getenv("GM_API_KEY")
+
 if API_KEY is None:
     raise ValueError("API_KEY environment variable not set")
 
 #Set your Gemini api key
 genai.configure(api_key=API_KEY)
 
-chatbot = genai.GenerativeModel('gemini-pro')
+chatbot = genai.GenerativeModel('gemini-2.0-flash')
 
 def healthcare_chatbot(user_input):
     if "appointment" in user_input:
